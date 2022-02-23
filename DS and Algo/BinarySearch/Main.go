@@ -9,6 +9,9 @@ import (
 )
 
 func BinarySearch(arr []int, target int) int {
+	if len(arr) == 0 {
+		return -1
+	}
 	start := 0
 	end := len(arr) - 1
 	for start <= end {
@@ -24,7 +27,6 @@ func BinarySearch(arr []int, target int) int {
 	}
 	return -1
 }
-
 
 func arrayAtoi(arr []string) []int {
 	res := []int{}

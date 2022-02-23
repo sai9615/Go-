@@ -9,6 +9,9 @@ import (
 )
 
 func BoundaryBinarySearch(arr []bool) int {
+	if len(arr) == 0 {
+		return -1
+	}
 	start := 0
 	end := len(arr) - 1
 	index := -1
