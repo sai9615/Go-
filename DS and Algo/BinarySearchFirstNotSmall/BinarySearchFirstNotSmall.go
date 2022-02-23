@@ -8,13 +8,16 @@ import (
 	"strings"
 )
 
-func BoundaryBinarySearch(arr []bool) int {
+func firstNotSmaller(arr []int, target int) int {
+	if len(arr) == 0 {
+		return -1
+	}
 	start := 0
 	end := len(arr) - 1
 	index := -1
 	for start <= end {
 		mid := start + (end-start)/2
-		if arr[mid] == true {
+		if arr[mid] >= target {
 			index = mid
 			end = mid - 1
 		} else {
@@ -24,10 +27,10 @@ func BoundaryBinarySearch(arr []bool) int {
 	return index
 }
 
-func arrayAtob(arr []string) []bool {
-	res := []bool{}
+func arrayAtoi(arr []string) []int {
+	res := []int{}
 	for _, x := range arr {
-		v, _ := strconv.ParseBool(x)
+		v, _ := strconv.Atoi(x)
 		res = append(res, v)
 	}
 	return res
@@ -43,7 +46,9 @@ func splitWords(s string) []string {
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
-	arr := arrayAtob(splitWords(scanner.Text()))
-	res := BoundaryBinarySearch(arr)
+	arr := arrayAtoi(splitWords(scanner.Text()))
+	scanner.Scan()
+	target, _ := strconv.Atoi(scanner.Text())
+	res := firstNotSmaller(arr, target)
 	fmt.Println(res)
 }
