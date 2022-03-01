@@ -1,4 +1,4 @@
-package Stack
+package stack
 
 //Stack is a struct containing a generic slice declared using interface.
 type Stack struct {
