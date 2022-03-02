@@ -1,6 +1,6 @@
 package stack
 
-//Stack is a struct containing a generic slice declared using interface.
+//Stack is a struct containing a generic slice declared using interface
 type Stack struct {
 	s []interface{}
 }
